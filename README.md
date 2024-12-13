@@ -1,5 +1,5 @@
 # Fischer-Scoring-and-Metropolis-Hastings
- Fischer Scoring &amp; Metropolis Hastings algorithm for the Probit Model
+Here are experiments with two algorithms to infer Probit model parameters
 
 ## Probit Model
 Probit Model is a Generalized Linear Model (GLM) used for binary data, in alternative to Logit model. The likelihood function is
