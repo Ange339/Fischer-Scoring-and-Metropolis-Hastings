@@ -4,17 +4,16 @@ import time
 
 from scipy.stats import norm
 import scipy.stats as stats
+from scipy.sparse import diags
 
-from sklearn.datasets import make_classification
 
-
-def probit(X, y, epsilon, verbose = True):
+def fs_probit(X, y, epsilon, verbose = True):
     n, p = np.shape(X)
     
     b_0 = np.zeros((p,1)) # Setting initial value of beta as 0
     Xb = np.dot(X,b_0) # Calculating Xb
     mu = norm.cdf(Xb) # Calculating mu
-    W = np.diag(((norm.pdf(Xb)**2)/ (mu*(1-mu))).flatten()) # Calculating W
+    W = diags(((norm.pdf(Xb)**2)/ (mu*(1-mu))).flatten()) # Calculating W
     Z = Xb + (y - mu)/norm.pdf(Xb) # Calculating Z
 
     iteration = 0 # Set the number of iterations
@@ -27,7 +26,7 @@ def probit(X, y, epsilon, verbose = True):
         b = np.linalg.inv(X.T @ W @ X) @ X.T @ W @ Z
         Xb = np.dot(X,b)
         mu = norm.cdf(Xb)
-        W = np.diag(((norm.pdf(Xb)**2)/(mu*(1-mu))).flatten())
+        W = diags(((norm.pdf(Xb)**2)/(mu*(1-mu))).flatten())
         Z = Xb + (y - mu)/norm.pdf(Xb)
 
         # Calculating the convergence criteria
