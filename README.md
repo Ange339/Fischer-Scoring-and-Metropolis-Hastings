@@ -24,12 +24,14 @@ where
 W_{(t)} = \frac{1}{Var(Y)} \left(\frac{\partial{X^T\beta_{(t)}}}{\partial{\mu_{(t)}}}\right)^{-2} = \frac{\left( \phi(X^T\beta_{(t)}) \right)^2}{\mu(1 -\mu)}
 ```
 
+which is a (p x p) diagonal matrix that can be stored as sparsed matrix, and
+
 
 ```math
 Z_{(t)} = X^T\beta_{(t)} + (Y - \mu) \left(\frac{\partial{X^T\beta_{(t)}}}{\partial{\mu_{(t)}}}\right) = X^T\beta_{(t)} + \frac{Y - \mu}{\phi(X^T\beta_{(t)})}
 ```
 
-with $\phi()$ denoting the standard Gaussian PDF.
+which is a (p x 1) vector with $\phi()$ denoting the standard Gaussian PDF.
 
 The running time of this algorithm is $\mathcal{O}(k * (np^2 + p^3))$, where $k$ is the number of iterations, $n$ and $p$ are the shape of input matrix: $np^2 + p^3$ occurs because of matrix operation $X^TWX$ and its invertion.
 
