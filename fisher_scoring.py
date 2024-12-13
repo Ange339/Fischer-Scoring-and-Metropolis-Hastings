@@ -5,10 +5,8 @@ import time
 from scipy.stats import norm
 import scipy.stats as stats
 
-from sklearn.datasets import make_classification
 
-
-def probit(X, y, epsilon, verbose = True):
+def fs_probit(X, y, epsilon, verbose = True):
     n, p = np.shape(X)
     
     b_0 = np.zeros((p,1)) # Setting initial value of beta as 0
