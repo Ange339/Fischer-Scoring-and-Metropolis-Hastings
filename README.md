@@ -31,5 +31,7 @@ Z_{(t)} = X^T\beta_{(t)} + (Y - \mu) \left(\frac{\partial{X^T\beta_{(t)}}}{\part
 
 with $\phi()$ denoting the standard Gaussian PDF.
 
+The running time of this algorithm is $\mathcal{O}(k * (np^2 + p^3))$, where $k$ is the number of iterations, $n$ and $p$ are the shape of input matrix: $np^2 + p^3$ occurs because of matrix operation $X^TWX$ and its invertion.
+
 
 
