@@ -36,4 +36,11 @@ which is a (p x 1) vector with $\phi()$ denoting the standard Gaussian PDF.
 The running time of this algorithm is $\mathcal{O}(k * (np^2 + p^3))$, where $k$ is the number of iterations, $n$ and $p$ are the shape of input matrix: $np^2 + p^3$ occurs because of matrix operation $X^TWX$ and its invertion.
 
 
+## Metropolis-Hastings
+Metropolis-Hastings is a Monte Carlo Markov Chain (MCMC) method used for Bayesian models. Assuming a standard normal prior, the Bayesian Probit model is
+
+```math
+P(\beta|Y,X) = \prod_{i=1}^n[\Phi(X_i^T\beta)]^{Y_i}*[1-\Phi(X_i^T\beta)]^{1-Y_i}*e^{-0.5(\beta^t\beta - 2\beta)}
+```
+
 
