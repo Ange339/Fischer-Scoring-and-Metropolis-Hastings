@@ -7,7 +7,7 @@ import scipy.stats as stats
 from scipy.sparse import diags
 
 
-def probit(X, y, epsilon, verbose = True):
+def fs_probit(X, y, epsilon, verbose = True):
     n, p = np.shape(X)
     
     b_0 = np.zeros((p,1)) # Setting initial value of beta as 0
