@@ -53,5 +53,8 @@ min\{1; \frac{P(\beta|y)Q(\beta_{(t-1)}|\beta)}{P(\beta_{(t-1)}|y)Q(\beta|\beta_
 
 We'll use a normal distribution with $\beta_{(t-1)}$ as mean and a proposal $\sigma^2$ as the proposal distribution $Q$: $\sigma^2$ is a tuning parameter that control. We will further assume that $Q(\beta_{(t-1)}|\beta) = Q(\beta|\beta_{(t-1)})$, such that the acceptance probability is simply the minimum between 1 and the ratio of two posteriors.
 
+Once the algorithm has iterated long enough and achieved the stationarity, the estimated will be Monte Carlo mean of the sampled parameters, considering burn-in and thinning.
+
+The time complexity of this algorithm is $\mathcal{O}(k * np)$, where $k$ is the number of iteration, and $np$ is due to the matrix operation of $X^T\beta$.
 
 
